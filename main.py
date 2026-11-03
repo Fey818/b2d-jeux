@@ -3,12 +3,14 @@
 #choisir un mode de jeu
     #1 lancer une partie,2 Tableau des score,3 Quittez
 
-#verifier l'input
-    #tant que vr
-        #que le int(min,max)
-    #exept
-        #mauvais nombre ressaier
-    #return int
+#verifier l'input TODO:
+    #tant que vraie
+        #choix = int (min,max)
+            #si min <= choix <= max
+            #break
+            #sinon 
+            #veuillez reesaier  
+        #return choix
 
 #lancer le menu 
     #choisir mode de jeu
@@ -16,19 +18,14 @@
 
 #a choisis lancer une partie
 
-#mettre nom
-
+#mettre nom TODO:
 #cree equipe
-
+#vague
 #choix monstre random
-
 #tour hero 
-
-
 #tour monstre 
-
 #verifier equipe vivante
-    
+
 #enregistre score dans la db
     #rammener vers le menu du debut
 
@@ -41,7 +38,11 @@
 #nom 
     #mettre nom
     #return nom
-#verifier nom 
+#verifier nom corect
+    #if nom .isalpha()
+    #break
+    #else 
+    #veuillez retapez
 
 
 
@@ -113,20 +114,23 @@
 
 
 
+
 #tour monstre
     #verifier hp_monstre
 
     #verifier perso mort      
 
-#verifier equipe viavnte
+#verifier equipe vivante
     #tant que perssonage > 0 
             #montrer l'equipe restante
             #refaire un tour
+    #return score
 
 
-#a choisis score
+#a choisis score TODO:
 #montrer tout less score enregistre depuis la db
+#montre top 3
 
-#a chosis de quittez le jeu
 
- 
+#a chosis de quittez le jeu  TODO:
+#quit

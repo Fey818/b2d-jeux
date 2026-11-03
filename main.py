@@ -14,6 +14,24 @@
     #choisir mode de jeu
     #verifier l'input
 
+#a choisis lancer une partie
+
+#mettre nom
+
+#cree equipe
+
+#choix monstre random
+
+#tour hero 
+
+
+#tour monstre 
+
+#verifier equipe vivante
+    
+#enregistre score dans la db
+    #rammener vers le menu du debut
+
 
 
 #mettre nom 
@@ -35,9 +53,11 @@
             #autre perso pas dans perssonage
                 #pas danss la liste
 
+
 #afficher perso
     #pour nom, stats dans perso
     #afficher perso
+
 
 #cree equipe
     #equipe = []
@@ -47,56 +67,62 @@
     #return equipe
 
 
+
 #choix monstre random
     #nom,stat = random.choice(list(monstre))
     #"Monstre choisis aleatoirement"
     #return nom,stats
 
 
-#recup hp monstre
-    #hp_monstre = monstre [1]["HP"]
+                            #verifier hp_monstre
+                                #hp_monstre = monstre [1]["HP"]
 
 #recup hp hero
-    #hp_equiê = perssonage [1]["HP"]
+    #hp_equipe = perssonage [1]["HP"]
+
+
+
+#attaque equipe
+    #pour nom dans equipe
+        #attaque = perssonage [nom]["Attack"]
+        #defense = monstre [1]["Defense"]
+        #degats = attaque - (defense // 3)
+
+        #hp_monstre = hp_monstre - degats
+
+
+#verifier hp_monstre 
+    #si hp_monstre <= 0
+        #mort
+    #else 
+        #return hp_monstre
+
+
+
+#verifier perso mort
+ #si perso <= 0
+            #rendre inactif le perso 
+        #retourner les hp    
+
+
 
 #tour hero
-    #recup hp monstre
-    #recup hp heroo
-    #calculer les degats des hero en vie
-    #attaquer
-    #si monstre hp =< 0 
-        #choix monstre random
-    #else
-        #return hp monstre
-
-#a choisis lancer une partie
-
-#mettre nom
-
-#cree equipe
-
-#choix monstre random
-
-#tour hero 
+    #attaquer equipe
+    #verifier hp_monstre
 
 
-#tour monstre 
-    #verifier si le monstre est encore en vie
-        #Tant que les hp du monstre > 0
-            #attaque monstre
-                #choix random du perso a attaquer
 
-    #verifier si unn des perso est mort 
-        #si perso <= 0
-            #rendre innactif le perso 
-        #retourner les hp
-#etre sur que un des perssonage est en vie et relancer un tour
+
+#tour monstre
+    #verifier hp_monstre
+
+    #verifier perso mort      
+
+#verifier equipe viavnte
     #tant que perssonage > 0 
-        #montrer l'equipe restante
-        #refaire un tour
-    #return score
-#enregistre score dans la db
-    #rammener vers le menu du debut
+            #montrer l'equipe restante
+            #refaire un tour
+
 
 #a choisis score
 #montrer tout less score enregistre depuis la db

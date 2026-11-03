@@ -14,6 +14,8 @@
     #choisir mode de jeu
     #verifier l'input
 
+
+
 #mettre nom 
     #nom = input"Mettez votre nom"
     #verifier nom correct
@@ -23,19 +25,49 @@
     #return nom
 #verifier nom 
 
-#verifier taille equipe
+
+
+#recuperer l'equipe
         #tant que equipe n'est pas < 3
             #taper les numero des perssonage
             #si perso deja dans equipe 
                 #deja seelectionner 
             #autre perso pas dans perssonage
                 #pas danss la liste
+
+#afficher perso
+    #pour nom, stats dans perso
+    #afficher perso
+
 #cree equipe
-    #cree une liste vierge
-    #montrer les perso disponible depuis la db
+    #equipe = []
+    #afficher perso
     #chosir sa team de 3
-        #verifier taille equipe
+        #recuperer l'equipe
     #return equipe
+
+
+#choix monstre random
+    #nom,stat = random.choice(list(monstre))
+    #"Monstre choisis aleatoirement"
+    #return nom,stats
+
+
+#recup hp monstre
+    #hp_monstre = monstre [1]["HP"]
+
+#recup hp hero
+    #hp_equiê = perssonage [1]["HP"]
+
+#tour hero
+    #recup hp monstre
+    #recup hp heroo
+    #calculer les degats des hero en vie
+    #attaquer
+    #si monstre hp =< 0 
+        #choix monstre random
+    #else
+        #return hp monstre
 
 #a choisis lancer une partie
 
@@ -43,20 +75,17 @@
 
 #cree equipe
 
-#monstre chosis au hasard depuis la db
+#choix monstre random
 
-#
 #tour hero 
-    #choix attaquer
-    #si attaque enlever hp monstre
-    
-    #return hp monstre
+
 
 #tour monstre 
     #verifier si le monstre est encore en vie
         #Tant que les hp du monstre > 0
             #attaque monstre
                 #choix random du perso a attaquer
+
     #verifier si unn des perso est mort 
         #si perso <= 0
             #rendre innactif le perso 

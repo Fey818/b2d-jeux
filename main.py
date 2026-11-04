@@ -13,7 +13,7 @@
 #si l'ultilisateur choisi 1
 
 #demander un nom d'utilisateur
-    #delander de taper un nom
+    #demander de taper un nom
     #verifier si le nom est correct
     #retourner le nom correct
 
@@ -42,26 +42,46 @@
             #autre perso pas dans perssonage
                 #pas danss la liste
 
-#lancer le round
-    #lancer la boucle des round
+#lancer la vague
+    #lancer le round
 
-#lancer la boucle des round
+#lancer le round
+    #comptez le nombre de vague
     #tant que 1 des perssonage est en vie
-        #lancer un choix au hasard d'un monstre
+        #faire un choix hasard d'un monstre depuis la db
         #tour des attaquant 
+        #tour du monstre
     
-#lancer un choix au hasard d'un monstre
-    #Pour nom et stat dans la liste des montstre
+#faire un choix au hasard d'un monstre
+    #Pour nom et stat dans la liste des monstre
         #lancer un choix aleatoire 
         #retourner son nom et ses stats
 
 #tour des attaquant
-    #calculer les degats cause par l'equipee
-    #retrourner la vie du monstre
-    ##verifier quelle personnage sont encore en vie
+    #calculer les degats subit par le monstre
+    #retourner la vie du monstre
 
 #tour du monstre
-    #verifier hp
+    #verifier la vie restante des hero
+    #lancer le tour d'attaque du monstre
+    #verifier quelle personnage sont encore en vie
+
+#calculer degats subis par le monstre
+    #parcourir chaque nom dans equipe
+        #prend l'attaque d'un perssonnage [nom],[attaque]
+        #on prend la defense du monstre 
+        #on calccule les degats en fesaint attaque -(deffense // 2)
+        #on calcule les hp du monstre en fesant degats - hp monstre
+
+#verifier vie restante des hero
+
+#calculer degats 
+    #choix random du perso a attaque
+    #on prebd l'attaque du monstreù
+    #on prend la defense du perso choisis
+    ##on calccule les degats en fesaint attaque -(deffense // 2)
+    #on calcule les hp du perso en fesant degats - pv perso
+
 
 
 

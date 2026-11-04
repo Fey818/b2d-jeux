@@ -1,4 +1,32 @@
 #initialiser la db
+#message de bienvenue
+#demander un choix entre (1 lancer une partie ,2 Tableau des score,3 quittez)
+
+#verifier le choix 
+    #Boucle infini
+        #choix (minimum,maximum)
+        #si le min <= choix <= max
+            #interompre le code
+        #sinon
+            #réessayer
+
+#si l'ultilisateur choisi 1
+
+#demander un nom d'utilisateur
+    #verifier si le nom est correct
+#montrer les perssonage disponible
+
+#demander de chosir 3 personnage
+
+
+
+
+
+
+
+
+
+#initialiser la db
 #Bienvenue dans le jeu
 #choisir un mode de jeu
     #1 lancer une partie,2 Tableau des score,3 Quittez
@@ -20,11 +48,7 @@
 
 #mettre nom TODO:
 #cree equipe
-#vague
-#choix monstre random
-#tour hero 
-#tour monstre 
-#verifier equipe vivante
+#round
 
 #enregistre score dans la db
     #rammener vers le menu du debut
@@ -35,9 +59,7 @@
     #nom = input"Mettez votre nom"
     #verifier nom correct
     #return nom
-#nom 
-    #mettre nom
-    #return nom
+
 #verifier nom corect
     #if nom .isalpha()
     #break
@@ -69,27 +91,60 @@
 
 
 
+#round 
+    #recuperer l'equipe
+    #tant que hp hero > 0
+        #choix monstre au hasard
+        #lancer round
+        
+
+
+
+#lancer round
+    #tant que hp monstre > 0
+        #tour hero
+        #verifier hp monstre
+        #tour monstre
+    #return hp hero
+
 #choix monstre random
     #nom,stat = random.choice(list(monstre))
     #"Monstre choisis aleatoirement"
     #return nom,stats
 
+#verifier hp hero
+    #si perso <= 0
+        #rendre inactif le perso 
+        #montrer perso actif
+    #retourner les hp    
 
-                            #verifier hp_monstre
-                                #hp_monstre = monstre [1]["HP"]
+#rendre inactif le perso 
+    #perso[].is_active = false
 
-#recup hp hero
-    #hp_equipe = perssonage [1]["HP"]
+#montrer persso actif
+    #actif = [obj for obj in perso if obj.is_active]
+    
 
 
+#tour hero
+    #attaquer equipe
+    #verifier hp_monstre
 
 #attaque equipe
     #pour nom dans equipe
         #attaque = perssonage [nom]["Attack"]
         #defense = monstre [1]["Defense"]
-        #degats = attaque - (defense // 3)
+        #degats = attaque - (defense // 2)
 
         #hp_monstre = hp_monstre - degats
+
+
+
+
+#tour monstre
+    #verifier hp_monstre
+
+    #verifier hp hero     
 
 
 #verifier hp_monstre 
@@ -100,32 +155,6 @@
 
 
 
-#verifier perso mort
- #si perso <= 0
-            #rendre inactif le perso 
-        #retourner les hp    
-
-
-
-#tour hero
-    #attaquer equipe
-    #verifier hp_monstre
-
-
-
-
-
-#tour monstre
-    #verifier hp_monstre
-
-    #verifier perso mort      
-
-#verifier equipe vivante
-    #tant que perssonage > 0 
-            #montrer l'equipe restante
-            #refaire un tour
-    #return score
-
 
 #a choisis score TODO:
 #montrer tout less score enregistre depuis la db
@@ -134,3 +163,45 @@
 
 #a chosis de quittez le jeu  TODO:
 #quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            #verifier hp_monstre
+                                #hp_monstre = monstre [1]["HP"]
+
+#recup hp hero
+    #hp_equipe = perssonage [1]["HP"]
+
+
+
+
+
+#verifier hp_monstre 
+    #si hp_monstre <= 0
+        #mort
+    #else 
+        #return hp_monstre
+
+
+
+
+
+
+
+
+
+#verifier equipe vivante
+    #tant que perssonage > 0 
+            #montrer l'equipe restante
+            #refaire un tour
+    #return score

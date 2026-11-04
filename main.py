@@ -3,14 +3,14 @@
 #demander un choix entre (1 lancer une partie ,2 Tableau des score,3 quittez)
 
 #verifier le choix 
-    #Boucle infini
-        #choix (minimum,maximum)
-        #si le min <= choix <= max
-            #interompre le code
-        #sinon
-            #réessayer
+    #tant que vraie
+        #choix = demande de choix (minimum,maximum)
+            #si le min <= choix <= max
+                #interompre le code
+            #sinon
+                #réessayer
 
-#si l'ultilisateur choisi 1
+#si l'utilisateur choisi 1
 
 #demander un nom d'utilisateur
     #demander de taper un nom
@@ -77,7 +77,7 @@
 
 #calculer degats 
     #choix random du perso a attaque
-    #on prebd l'attaque du monstreù
+    #on prebd l'attaque du monstre
     #on prend la defense du perso choisis
     ##on calccule les degats en fesaint attaque -(deffense // 2)
     #on calcule les hp du perso en fesant degats - pv perso
@@ -85,6 +85,8 @@
 
 
 
+
+#ancien code
 
 
 

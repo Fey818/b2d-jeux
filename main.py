@@ -13,12 +13,55 @@
 #si l'ultilisateur choisi 1
 
 #demander un nom d'utilisateur
+    #delander de taper un nom
     #verifier si le nom est correct
-#montrer les perssonage disponible
+    #retourner le nom correct
 
-#demander de chosir 3 personnage
+#verifier si le nom est correct
+    #si le nom contient des caracetre hors alphabet
+        #interompre le code
+    #autre 
+        #réessayer
 
 
+#demander de cree une equipe
+    #cree une liste vide
+    #afficher tout les perso disponible
+    #demander de choisir 3 perso
+    #retourner les perso chosis
+
+#afficher personnage dispo
+    #pour nom et stats dans la liste des personnage
+    #afficher les perssonage
+
+#demander de choisir 3 perso
+    #tant que equipe n'est pas < 3
+        #demander d'ecrire les numero de perssonage voulue
+            #si perso deja dans equipe 
+                #deja seelectionner 
+            #autre perso pas dans perssonage
+                #pas danss la liste
+
+#lancer le round
+    #lancer la boucle des round
+
+#lancer la boucle des round
+    #tant que 1 des perssonage est en vie
+        #lancer un choix au hasard d'un monstre
+        #tour des attaquant 
+    
+#lancer un choix au hasard d'un monstre
+    #Pour nom et stat dans la liste des montstre
+        #lancer un choix aleatoire 
+        #retourner son nom et ses stats
+
+#tour des attaquant
+    #calculer les degats cause par l'equipee
+    #retrourner la vie du monstre
+    ##verifier quelle personnage sont encore en vie
+
+#tour du monstre
+    #verifier hp
 
 
 
@@ -135,7 +178,6 @@
         #attaque = perssonage [nom]["Attack"]
         #defense = monstre [1]["Defense"]
         #degats = attaque - (defense // 2)
-
         #hp_monstre = hp_monstre - degats
 
 

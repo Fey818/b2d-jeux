@@ -25,4 +25,10 @@ class Entity:
         return self.hp
 
     def Attack(self, target : Entity):
-    
+        damage = self.attack - target.defense
+        if damage < 0:
+            damage = 0
+        target.TakeDamage(damage)
+        return damage
+    def PlayTurn():
+        pass

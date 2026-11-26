@@ -236,3 +236,4 @@ Saves.insert_many(SavesList)
 print("Database populated:")
 for name in database.list_collection_names():
 	print(f"  {name}: {database[name].count_documents({})} documents")
+

@@ -9,7 +9,9 @@ class Entity:
         self.maxHp = maxHp
         self.attack = attack
         self.defense = defense
-    def IsAlive(self):
+
+    def IsAlive(self) :
+
         return self.hp > 0
 
     def TakeDamage(self, amount : int):
@@ -35,21 +37,22 @@ class Entity:
 
 class Character(Entity):
     def __init__(self, equipment : list[Equipable], attack : int , defense : int):
-        super().__init__(equipment[0].name, equipment[0].hp, equipment[0].maxHp, attack, defense)
+        super().__init__(equipment[0].name, equipment[0].stats["hp"], equipment[0].stats["maxHp"], attack, defense)
         self.equipped_items = equipment
 
     def EquipItem(self, item: Equipable):
-        self.attack += item.attack
-        self.defense += item.defense
-        self.maxHp += item.maxHp
-        self.hp += item.maxHp
+        self.attack += item.stats["attack"]
+        self.defense += item.stats["defense"]
+        self.maxHp += item.stats["maxHp"]
+        self.hp += item.stats["maxHp"]
         self.equipped_items.append(item)
+
 
     def UnequipItem(self, item: Equipable):
         if item in self.equipped_items:
-            self.attack -= item.attack
-            self.defense -= item.defense
-            self.maxHp -= item.maxHp
+            self.attack -= item.stats["attack"]
+            self.defense -= item.stats["defense"]
+            self.maxHp -= item.stats["maxHp"]
             if self.hp > self.maxHp:
                 self.hp = self.maxHp
             self.equipped_items.remove(item)
@@ -59,22 +62,25 @@ class Character(Entity):
             if item.slot == slot_name:
                 return False
         return True
+    
 
     def GetEquipment(self , slot_name: str):
-        Equipable = None
+        equipable = None
         for item in self.equipped_items:
             if item.slot == slot_name:
-                Equipable = item
+                equipable = item
                 break
-        return Equipable
+        return equipable
+
 
     def ProjectDamage(self, target: Entity):
         damage = self.attack - target.defense
         if damage < 0:
             damage = 0
         return damage
-    def PlayTurn(self):
-        pass
+    def PlayTurn(self, target: Entity): 
+        self.Attack(target)
+
 
 class Enemy(Entity):
     def __init__(self, name, hp, maxHp, attack, defense, dropable : list[Item]):

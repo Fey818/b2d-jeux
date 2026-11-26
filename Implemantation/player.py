@@ -1,52 +1,51 @@
+from db_init import CharacterList
 from entity import Entity , Character
 from item import Item, Equipable, Consumable
 
 class Player(Entity):
-    def __init__(self, name , score , Character : Character , inventory : list[Item]):
-        super().__init__(name, Character.hp, Character.maxHp, Character.attack, Character.defense)
+    def __init__(self, name , score , team: list[Character], inventory: list[Item]):
+        super().__init__(name, team[0].hp, team[0].maxHp, team[0].attack, team[0].defense)
         self.score = score
-        self.character = Character
+        self.team = team
         self.inventory = inventory
 
-    def CreateTeam(self, name, hp, maxHp, attack, defense):
-        return Character(name, hp, maxHp, attack, defense)
+    def CreateTeam(self, team_size: int = 3):
+        self.team = []
+        for i, character in enumerate(CharacterList):
+            if i >= team_size:
+                break
+            self.team.append(character)
 
-    def PickCharacter(self, character: Character):
-        self.character = character
+    def PickCharacter(self):
+        for character in CharacterList:
+            self.team.append(character)
+        self.team = list(set(self.team))
+
     
     def IsTeamAlive(self):
-        return self.character.IsAlive()
+        return any(member.IsAlive() for member in self.team)
 
-    def CheckInventory(self):
-        return self.inventory
+    def CheckInventory(self, item: Item = None):
+        if item:
+            if item in self.inventory:
+                print(f"{item.name}: {item.description}")
+            else:
+                print(f"{item.name} is not in the inventory.")
+        else:
+            if not self.inventory:
+                print("Inventory is empty.")
+            else:
+                for item in self.inventory:
+                    print(f"{item.name}: {item.description}")
 
     def UseItem(self, item: Item):
+        if item not in self.inventory:
+            print(f"{item.name} is not in the inventory.")
+            return
         if isinstance(item, Equipable):
-            self.character.EquipItem(item)
+            for member in self.team:
+                member.EquipItem(item)
         elif isinstance(item, Consumable):
-            item.Use(self.character)
-
-
-class Vague:
-    def __init__(self, vague_actuelle : int, enemies: list[Entity]):
-        self.vague_actuelle = vague_actuelle
-        self.enemies = enemies
-
-    def PickEnnemies(self, vague : Vague):
-        # Example logic to pick enemies based on the current wave
-        self.enemies = [enemy for enemy in self.enemies if enemy.IsAlive()]
-
-    def Playvague(self, player: Player):
-        for enemy in self.enemies:
-            while enemy.IsAlive() and player.IsAlive():
-                player.Attack(enemy)
-                if enemy.IsAlive():
-                    enemy.Attack(player)
-        return player.IsAlive()
-
-    def GetDifficulty(self):
-        # Example logic to determine difficulty based on the current wave
-        return self.vague_actuelle * 10
-    
-
-    
+            for member in self.team:
+                item.Use(member)
+        self.inventory.remove(item)

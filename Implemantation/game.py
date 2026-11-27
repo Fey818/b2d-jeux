@@ -1,7 +1,14 @@
-from db_init import *
-from entity import *
+import pymongo
+import entity
 from player import Player, Vague
 from item import Item, Equipable, Consumable
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+def connect_db():
+    db = client["game_db"]
+    return db
+
+
+
 
 class Game:
     def __init__(self, player: Player, vague: Vague, mongo_client):
@@ -10,7 +17,7 @@ class Game:
         self.mongo_client = mongo_client
 
     def SaveGame(self, save_name: str):
-        db = self.mongo_client["game_database"]
+        db = self.mongo_client["game_db"]
         saves_collection = db["saves"]
         save_data = {
             "save_name": save_name,
@@ -20,8 +27,9 @@ class Game:
         saves_collection.insert_one(save_data)
 
     def LoadGame(self, save_name: str):
-        db = self.mongo_client["game_database"]
+        db = self.mongo_client["game_db"]
         saves_collection = db["saves"]
+
         save_data = saves_collection.find_one({"save_name": save_name})
         if save_data:
             self.player = Player(**save_data["player"])
@@ -38,7 +46,7 @@ class Game:
         print(f"Score: {self.player.score}")
 
     def ShowLeaderboard(self, top_n: int = 10):
-        db = self.mongo_client["game_database"]
+        db = self.mongo_client["game_db"]
         saves_collection = db["saves"]
         leaderboard = saves_collection.find().sort("player.score", -1).limit(top_n)
         print("Leaderboard:")

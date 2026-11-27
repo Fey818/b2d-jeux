@@ -4,7 +4,6 @@ from player import Player
 import vague
 from item import Item, Equipable, Consumable
 import db_init
-
 class Game:
     def __init__(self, player: Player, vague: vague.Vague, mongo_client):
         self.player = player
@@ -38,9 +37,12 @@ class Game:
     def launchgame(self):
         save_name = input("Enter save name: ")
         self.loadgame(save_name)
-        
+        player_game , score = self.vague.play_vague(self.player)
 
-        
+        if player_game:
+            print(f"Vague completed! Score: {score}")
+        else:
+            print("Game Over!")
     def showleaderboard(self, top_n: int = 10):
         db = db_init.connect_db()
         saves_collection = db["saves"]
